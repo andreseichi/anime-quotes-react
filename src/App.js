@@ -1,30 +1,16 @@
 import { useEffect, useState } from 'react';
 
-import PropTypes from 'prop-types';
+import { Quote } from './components/Quote';
 
 export const App = () => {
-  const Quote = ({ anime, character, quote }) => {
-    return (
-      <div>
-        <h2>Anime: {anime}</h2>
-        <p>Character:{character}</p>
-        <p>{quote}</p>
-      </div>
-    );
-  };
-
-  Quote.propTypes = {
-    anime: PropTypes.string.isRequired,
-    character: PropTypes.string.isRequired,
-    quote: PropTypes.string.isRequired,
-  };
-
   const [quotes, setQuotes] = useState([]);
 
   const getQuotes = async () => {
-    const response = await fetch('https://animechan.vercel.app/api/quotes');
+    const response = await fetch(
+      'https://animechan.vercel.app/api/quotes/anime?title=brotherhood',
+    );
     const responseJSON = await response.json();
-
+    console.log(responseJSON);
     setQuotes(responseJSON);
   };
 
