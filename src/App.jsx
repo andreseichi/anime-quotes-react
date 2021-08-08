@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 
 import { Quote } from './components/Quote';
 
+import fullmetalQuotes from './utils/fullmetal-quotes.json';
+
 export const App = () => {
   const [quotes, setQuotes] = useState([]);
 
@@ -10,26 +12,29 @@ export const App = () => {
       'https://animechan.vercel.app/api/quotes/anime?title=brotherhood',
     );
     const responseJSON = await response.json();
-    console.log(responseJSON);
     setQuotes(responseJSON);
   };
 
-  useEffect(() => {
-    getQuotes();
-  }, []);
+  const quotesFullmetal = () => {
+    setQuotes(fullmetalQuotes);
+  };
 
-  console.log(quotes);
+  useEffect(() => {
+    quotesFullmetal();
+  }, []);
 
   return (
     <div className="App">
-      {quotes.map((quote) => (
-        <Quote
-          key={quote.quote}
-          anime={quote.anime}
-          character={quote.character}
-          quote={quote.quote}
-        />
-      ))}
+      <div className="quotes">
+        {quotes.map((quote) => (
+          <Quote
+            key={quote.quote}
+            anime={quote.anime}
+            character={quote.character}
+            quote={quote.quote}
+          />
+        ))}
+      </div>
     </div>
   );
 };
