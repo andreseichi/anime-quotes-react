@@ -1,11 +1,13 @@
 import PropTypes from 'prop-types';
 
+import './styles.css';
+
 export const Quote = ({ anime, character, quote }) => {
   return (
     <div className="quote">
-      <h2>Anime: {anime}</h2>
+      <h2>“{quote}”</h2>
       <p>Character: {character}</p>
-      <p>{quote}</p>
+      <p>Anime: {anime}</p>
     </div>
   );
 };

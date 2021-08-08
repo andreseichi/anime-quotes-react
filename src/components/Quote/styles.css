@@ -1,0 +1,10 @@
+.quote {
+  width: 40rem;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 1rem;
+  background: rgb(226, 219, 231);
+  text-align: center;
+}
