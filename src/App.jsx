@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { Quote } from './components/Quote';
 import { QuoteJson } from './components/QuoteJson';
 
-import fullmetalQuotes from './utils/fullmetal-quotes.json';
+import fullmetalQuotes from './utils/fullmetal-brotherhood-quotes.json';
 
 import './App.css';
 
@@ -12,7 +12,7 @@ export const App = () => {
 
   const getQuotes = async () => {
     const response = await fetch(
-      'https://animechan.vercel.app/api/quotes/anime?title=brotherhood&page=10',
+      'https://animechan.vercel.app/api/quotes/anime?title=fullmetal',
     );
     const responseJSON = await response.json();
     console.log(responseJSON);
